@@ -11,7 +11,6 @@ module mips(
 );
 
 
-  //logic [31:0] ALU_ALUResultD;
   logic [31:0] ALU_ALUResultE;
   logic [31:0] ALU_ALUResultM;
   logic [31:0] ALU_ALUResultW;
@@ -24,7 +23,6 @@ module mips(
   logic [31:0] DMEM_ReadDataW;
   logic [31:0] pc;
   
-  //logic [4:0] WriteRegD;
   logic [4:0] WriteRegE;
   logic [4:0] WriteRegM;
   logic [4:0] WriteRegW;
@@ -121,25 +119,15 @@ module mips(
       if(iReset) begin
       	  IMEM_InstD <= 0;
         
-        
           REG_SrcAE <= 0;
       	  SignImmE <= 0;
-        
-          //ALU_ALUResultE <= 0;
-       	  //ALU_ALUResultM <= 0;
-          //ALU_ALUResultW <= 0;
-        
           CTL_ALUSrcE <= 0;
        	  ALU_ALUResultM <= 0;
           ALU_ALUResultW <= 0;
-          //ALU_ALUResultW <= 0;
-          DMEM_ReadDataW <= 0; //
+          DMEM_ReadDataW <= 0;
           WriteRegM <= 0;
           WriteRegW <= 0;
-        
-          //WriteRegE
           CTL_ALUControlE <= 0;
-        
           CTL_MemtoRegE <= 0;
           CTL_MemtoRegM <= 0;
           CTL_MemtoRegW <= 0;
@@ -150,18 +138,13 @@ module mips(
           IMEM_InstD <= IMEM_InstF;
           
           
-          //ALU_ALUResultE <= ALU_ALUResultD;
-          
-          //ALU_ALUResultW <= ALU_ALUResultM;
-          
           REG_SrcAE <= REG_SrcAD;
           SignImmE <= SignImmD;
           
-		  CTL_ALUSrcE <= CTL_ALUSrcD;
+		      CTL_ALUSrcE <= CTL_ALUSrcD;
           ALU_ALUResultM <= ALU_ALUResultE;
           ALU_ALUResultW <= ALU_ALUResultM;
-		  DMEM_ReadDataW <= DMEM_ReadDataM;
-       	  //WriteRegE <= WriteRegD;
+		      DMEM_ReadDataW <= DMEM_ReadDataM;
           WriteRegM <= WriteRegE;
           WriteRegW <= WriteRegM;
           
